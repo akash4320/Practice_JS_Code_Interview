@@ -30,3 +30,37 @@
   // About to Call the Event
   // My Handler called after event emitted
 }
+
+// Practice Routes HandsOn 
+{
+  const express = require('express')
+  const app = express()
+  const userRoute = require('../routes/userRoute')
+  app.use(express.json())
+  app.use('/api/cart', userRoute)
+
+  // userRoute File
+  const express = require('express')
+  const router = express.Router()
+  router.route('/').get(getAllItemsController)
+  exports.module = router
+}
+
+// Count Repeated Characters Seperately
+const countChar = (inputStr) => {
+  const inputArr = inputStr.split('');
+  let i=0;
+  while (i < inputArr.length) {
+   const st = inputArr[i];
+   let count = 1;
+   let j=i+1;
+   while(st === inputArr[j] && j < inputArr.length){
+     count += 1;
+     j += 1
+   }
+   i = j;
+   console.log(`${st}-${count}`)
+  }
+}
+countChar("aabbcccaaaabbb");
+countChar("a");
